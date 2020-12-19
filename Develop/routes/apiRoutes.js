@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const dataBase = require("../db/db.json");
+let dataBase = require("../db/db.json");
 
 console.log(dataBase);
 module.exports = function (app) {
@@ -17,7 +17,7 @@ module.exports = function (app) {
     }
   });
   app.delete("/api/notes/:id", (req, res) => {
-    console.log("DELETE", req.body);
+    console.log("DELETE", req.params.id);
     // the id of the note will be in req.params.id
     if (dataBase) {
       // use the filter array method to find the note with the id you want to delete
